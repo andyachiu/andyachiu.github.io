@@ -3,13 +3,14 @@ import type { Project } from '../data/projects';
 interface Props { project: Project; index: number; }
 const { project, index } = Astro.props;
 const title = project.displayTitle ?? project.title;
-const links = project.links ?? [{
+const links = project.access ? [] : project.links ?? [{
   label: project.href === 'https://github.com/andyachiu' ? 'GitHub profile' : 'View project',
   href: project.href,
 }];
 ---
 <article class:list={['project-card', { 'agent-card': project.interactiveWorkflow }]}>
   <div class="project-meta"><span>{String(index + 1).padStart(2, '0')} / {project.category}</span><span>{project.year}</span></div>
+  {project.access && <span class="access-badge">{project.access}</span>}
   <h3>{title}</h3>{project.context && <p class="project-context">{project.context}</p>}<p class="project-description">{project.description}</p>
   {project.contribution && <p class="project-contribution">{project.contribution}</p>}
   {project.interactiveWorkflow ? <div class="agent-explorer">

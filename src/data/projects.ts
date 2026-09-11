@@ -5,6 +5,7 @@ export interface Project {
   context?: string;
   contribution?: string;
   accessNote?: string;
+  access?: "Private repository" | "Proprietary";
   workflow?: string[];
   interactiveWorkflow?: boolean;
   links?: { label: string; href: string }[];
@@ -28,12 +29,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Kobu: Genomic Sequence Extraction",
-    displayTitle: "Kobu",
-    category: "BIOINFORMATICS",
-    workflow: ["GenBank records", "Extract 3′ UTR", "Cluster sequences"],
-    description: "Bioinformatics tool for extracting 3' UTR sequences from GenBank records, trimming poly-A tails, and clustering by sequence identity.",
-    tags: ["Bioinformatics", "Python", "Biopython"],
+    title: "Research Data Workflows",
+    category: "RESEARCH TOOLS",
+    access: "Proprietary",
+    workflow: ["Organize research data", "Support repeatable analysis", "Streamline research workflows"],
+    description: "A proprietary tool that helps researchers organize complex data and streamline repeatable analysis workflows.",
+    tags: ["Research", "Data Analysis", "Automation"],
     href: "https://github.com/andyachiu",
     year: "2025",
     featured: true,
@@ -41,6 +42,7 @@ export const projects: Project[] = [
   {
     title: "HealthCharts: Longitudinal Biomarker Engine",
     displayTitle: "HealthCharts",
+    access: "Private repository",
     category: "HEALTH DATA",
     workflow: ["Wearable telemetry", "Lab panels", "Trend analytics"],
     description: "Personal health data platform synthesizing wearable telemetry and lab panels into actionable visual trend analytics.",
@@ -78,6 +80,7 @@ export const projects: Project[] = [
   },
   {
     title: "Packing Assistant",
+    access: "Private repository",
     category: "PERSONAL AUTOMATION",
     context: "Personal project · Adaptive travel checklists",
     description: "A reusable packing system that turns trip duration, destination needs, and modular templates into personalized checklists. Scales item quantities, preserves packing progress, and uses AI-assisted post-trip reflections to improve future lists.",
