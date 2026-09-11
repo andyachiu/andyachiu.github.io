@@ -18,6 +18,30 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Customer Intelligence & Recommendations",
+    category: "APPLIED AI",
+    context: "Google · AI work since 2025 · Launched products",
+    access: "Proprietary",
+    description: "AI-assisted products that turn customer interactions into structured measurement insights and help technical sellers evaluate suitable solutions. Combines customer context, eligibility rules, and expert-validated guidance with LLM-generated explanations.",
+    contribution: "Product strategy, user research, roadmap, engineering prioritization, launch, and adoption.",
+    workflow: ["Structure customer intelligence", "Evaluate solution fit", "Explain recommendations"],
+    tags: ["Product Strategy", "LLMs", "Decision Support"],
+    href: "",
+    year: "2025 — Present",
+  },
+  {
+    title: "Enterprise Implementation CRM",
+    category: "INTERNAL TOOLS",
+    context: "Google · Internal platform · In development",
+    access: "Proprietary",
+    description: "A specialized CRM in development that connects measurement insights and solution recommendations with enterprise project tracking, stakeholder coordination, and leadership reporting. Builds on the newer AI products, distinct from the earlier core Google Ads CRM transformation.",
+    contribution: "Leading product development and cross-functional coordination.",
+    workflow: ["Connect insights & recommendations", "Coordinate implementation work", "Track projects & report progress"],
+    tags: ["CRM", "Product Development", "Enterprise Workflows"],
+    href: "",
+    year: "In development",
+  },
+  {
     title: "Autonomous Agent Tooling & Workflows",
     displayTitle: "Autonomous agent tooling & workflows",
     category: "AI SYSTEMS",
