@@ -7,20 +7,20 @@ export interface SocialLink {
 export const siteConfig = {
   name: "Andy Chiu",
   title: "AI Product Manager",
-  location: "San Francisco Bay Area",
-  headline: "AI Product Manager building at the intersection of agentic workflows, complex systems, and user craft.",
+  location: "San Francisco, CA",
+  headline: "Product Manager at Google & UC Berkeley MIDS candidate. Building core technology platforms, agentic workflows, and high-craft data systems.",
   bio: [
-    "I focus on taking AI products from research prototypes to dependable production software. My background bridges computational workflows, data science, and intuitive interface design.",
-    "Currently exploring autonomous coding agents, human-in-the-loop evals, and developer experience."
+    "At Google, I focus on building core technology platforms and internal tooling that scale enterprise operations. Currently completing my Master of Information and Data Science (MIDS) at UC Berkeley School of Information with a focus on AI Product Management.",
+    "My technical foundation bridges computational biology, data science, and modern web development. I care deeply about taking complex AI systems from research prototype to dependable, human-centered products."
   ],
   status: {
     available: true,
-    text: "Building & exploring 0 → 1 AI products",
+    text: "Building platforms @ Google · MIDS @ UC Berkeley",
   },
   links: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/andyachiu", handle: "andyachiu" },
     { label: "GitHub", href: "https://github.com/andyachiu", handle: "@andyachiu" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/andyachiu", handle: "andyachiu" },
-    { label: "Email", href: "mailto:hello@andychiu.com" },
+    { label: "Email", href: "mailto:andychiu@ischool.berkeley.edu" },
     { label: "Resume", href: "/resume.pdf" },
   ] as SocialLink[],
 };
