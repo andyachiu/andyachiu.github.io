@@ -9,7 +9,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     period: "2020 — Present",
-    role: "Senior Consultant / Technical Product Lead",
+    role: "Applied AI Global Product Lead",
     company: "Google",
     description: "Building core technology platforms and custom automation tooling for Google Sales teams to drive enterprise scale. Recognized as go-to product expert and cross-functional technical leader.",
   },

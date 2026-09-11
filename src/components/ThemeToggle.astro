@@ -69,7 +69,7 @@
       } else {
         document.documentElement.classList.remove('dark');
       }
-      localStorage.setItem('theme', nextTheme);
+      try { localStorage.setItem('theme', nextTheme); } catch {}
       syncIcons();
     });
   }
