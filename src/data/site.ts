@@ -10,8 +10,9 @@ export const siteConfig = {
   location: "San Francisco, CA",
   headline: "Product Manager at Google & UC Berkeley MIDS candidate. Building core technology platforms, agentic workflows, and high-craft data systems.",
   bio: [
-    "At Google, I focus on building core technology platforms and internal tooling that scale enterprise operations. Currently completing my Master of Information and Data Science (MIDS) at UC Berkeley School of Information with a focus on AI Product Management.",
-    "My technical foundation bridges computational biology, data science, and modern web development. I care deeply about taking complex AI systems from research prototype to dependable, human-centered products."
+    "I bring a seller’s perspective to building AI products. Before moving into product leadership at Google, I worked directly with small businesses and enterprise customers on growth strategy, digital advertising, and technical integrations. That experience shapes how I connect customer needs with products people can adopt and use.",
+    "As an Applied AI Global Product Lead at Google, I build platforms and workflows for sales teams, bringing together product strategy, user research, go-to-market planning, and cross-functional delivery. My background spans enterprise account management, Google Ads, sales operations, and seller advocacy.",
+    "I’m completing my Master of Information and Data Science at UC Berkeley. My technical work spans research data workflows, data science, and web development, with a focus on turning complex AI systems into dependable, human-centered products."
   ],
   status: {
     available: true,
