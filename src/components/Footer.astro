@@ -1,0 +1,29 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<footer class="mt-20 border-t border-zinc-200/80 pt-8 dark:border-zinc-800/80">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+      {siteConfig.links.map((link) => (
+        <a
+          href={link.href}
+          target={link.href.startsWith('http') || link.href.endsWith('.pdf') ? '_blank' : undefined}
+          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          class="group inline-flex min-h-[44px] items-center gap-1 text-zinc-600 transition-colors hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:text-zinc-400 dark:hover:text-zinc-100 dark:focus-visible:ring-zinc-600"
+        >
+          <span>{link.label}</span>
+          <span
+            class="inline-block text-xs text-zinc-400 transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-zinc-500 motion-reduce:transform-none"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+        </a>
+      ))}
+    </div>
+    <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600">
+      © {new Date().getFullYear()} {siteConfig.name}
+    </p>
+  </div>
+</footer>

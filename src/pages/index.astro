@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/site';
+import { projects } from '../data/projects';
+import { experiences } from '../data/experience';
+---
+
+<Layout>
+  <main class="space-y-16">
+    <!-- Header & Status -->
+    <header class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <h1 class="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white">
+          {siteConfig.name}
+        </h1>
+        <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          {siteConfig.title} · {siteConfig.location}
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        {siteConfig.status.available && (
+          <StatusBadge text={siteConfig.status.text} />
+        )}
+        <ThemeToggle />
+      </div>
+    </header>
+
+    <!-- Hero / Positioning Statement -->
+    <section class="space-y-4">
+      <p class="text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+        {siteConfig.headline}
+      </p>
+      {siteConfig.bio.map((paragraph) => (
+        <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          {paragraph}
+        </p>
+      ))}
+    </section>
+
+    <!-- Selected Products / Projects -->
+    <section class="space-y-6">
+      <div class="flex items-baseline justify-between border-b border-zinc-200/80 pb-3 dark:border-zinc-800/80">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+          Selected Products & Projects
+        </h2>
+        <span class="font-mono text-xs tabular-nums text-zinc-400 dark:text-zinc-600">
+          {projects.length.toString().padStart(2, '0')}
+        </span>
+      </div>
+      <div class="grid grid-cols-1 gap-4">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Experience / Light Resume -->
+    <section class="space-y-6">
+      <div class="flex items-baseline justify-between border-b border-zinc-200/80 pb-3 dark:border-zinc-800/80">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+          Track Record
+        </h2>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          class="group inline-flex items-center gap-1 font-mono text-xs text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:text-zinc-400 dark:hover:text-zinc-100 dark:focus-visible:ring-zinc-600"
+        >
+          <span>Resume (PDF)</span>
+          <span
+            class="transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+        </a>
+      </div>
+      <div class="divide-y divide-zinc-200/60 dark:divide-zinc-800/60">
+        {experiences.map((experience) => (
+          <ExperienceItem experience={experience} />
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</Layout>
