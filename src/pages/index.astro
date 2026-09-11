@@ -10,7 +10,7 @@ import { experiences } from '../data/experience';
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="#">Andy Chiu<span aria-hidden="true"> / </span></a>
-    <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a class="contact-link" href="mailto:andychiu@ischool.berkeley.edu">Let’s connect <span aria-hidden="true">↗</span></a><ThemeToggle /></nav>
+    <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a class="contact-link" href="mailto:theandychiu+website@gmail.com">Let’s connect <span aria-hidden="true">↗</span></a><ThemeToggle /></nav>
   </header>
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
@@ -38,5 +38,5 @@ import { experiences } from '../data/experience';
       <div class="experience-list">{experiences.map(experience => <article class="experience"><p class="eyebrow">{experience.period}</p><h3>{experience.company}</h3><p class="experience-role">{experience.role}</p><p>{experience.description}</p></article>)}</div>
     </section>
   </main>
-  <footer class="site-footer"><div><p class="eyebrow">KEEP IN TOUCH</p><a class="footer-title" href="mailto:andychiu@ischool.berkeley.edu">Let’s build something useful. <span aria-hidden="true">↗</span></a></div><div class="footer-bottom"><p>© {new Date().getFullYear()} Andy Chiu</p><nav aria-label="Social links">{siteConfig.links.map(link => <a href={link.href} target={link.href.startsWith('http') || link.href.endsWith('.pdf') ? '_blank' : undefined} rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>)}</nav></div></footer>
+  <footer class="site-footer"><div><p class="eyebrow">KEEP IN TOUCH</p><a class="footer-title" href="mailto:theandychiu+website@gmail.com">Let’s build something useful. <span aria-hidden="true">↗</span></a></div><div class="footer-bottom"><p>© {new Date().getFullYear()} Andy Chiu</p><nav aria-label="Social links">{siteConfig.links.map(link => <a href={link.href} target={link.href.startsWith('http') || link.href.endsWith('.pdf') ? '_blank' : undefined} rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>)}</nav></div></footer>
 </Layout>
