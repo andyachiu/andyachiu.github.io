@@ -1,40 +1,32 @@
 ---
 import type { Project } from '../data/projects';
+import { explorations } from '../data/explorations';
+import ProjectExploration from './ProjectExploration.astro';
 interface Props { project: Project; index: number; }
 const { project, index } = Astro.props;
 const title = project.displayTitle ?? project.title;
-const links = project.links ?? (project.access ? [] : [{
+const exploration = explorations[project.title];
+const links = project.links ?? (project.access || !project.href ? [] : [{
   label: project.href === 'https://github.com/andyachiu' ? 'GitHub profile' : 'View project',
   href: project.href,
 }]);
 ---
-<article class:list={['project-card', { 'agent-card': project.interactiveWorkflow }]}>
-  <div class="project-meta"><span>{String(index + 1).padStart(2, '0')} / {project.category}</span><span>{project.year}</span></div>
-  {project.access && <span class="access-badge">{project.access}</span>}
-  <h3>{title}</h3>{project.context && <p class="project-context">{project.context}</p>}<p class="project-description">{project.description}</p>
-  {project.contribution && <p class="project-contribution">{project.contribution}</p>}
-  {project.interactiveWorkflow ? <div class="agent-explorer">
-    <div class="demo-caption">EXPLORE THE WORKFLOW <span>ILLUSTRATIVE</span></div>
-    <div class="flow-controls" role="group" aria-label="Agent workflow stages">
-      <button type="button" data-stage="0" aria-pressed="true" aria-controls="workflow-detail"><span>01</span> Context</button><span class="flow-arrow" aria-hidden="true">→</span>
-      <button type="button" data-stage="1" aria-pressed="false" aria-controls="workflow-detail"><span>02</span> Tools</button><span class="flow-arrow" aria-hidden="true">→</span>
-      <button type="button" data-stage="2" aria-pressed="false" aria-controls="workflow-detail"><span>03</span> Memory</button>
+<article class:list={['project-row', { 'agent-row': project.interactiveWorkflow }]} aria-labelledby={`project-title-${index}`}>
+  <div class="project-meta"><span>{String(index + 1).padStart(2, '0')} / {project.category}</span><span>{project.year}</span>{project.access && <span class="access-badge">{project.access}</span>}</div>
+  <div class="project-editorial">
+    <div class="project-story">
+      <h3 id={`project-title-${index}`}>{title}</h3>
+      <p class="project-description">{project.description}</p>
+      {exploration ? <ProjectExploration exploration={exploration} index={index} /> : project.workflow && <div class="workflow-overview"><p class="workflow-overview-label">{project.title === 'Enterprise Implementation CRM' ? 'Connecting insight to implementation' : project.title === 'Packing Assistant' ? 'A checklist that improves between trips' : 'At a glance'}</p><ol class="editorial-flow">{project.workflow.map(stage => <li>{stage}</li>)}</ol></div>}
+      {exploration && project.workflow && <details class="workflow-disclosure"><summary>View the workflow outline <span class="disclosure-mark" aria-hidden="true">+</span></summary><ol class="editorial-flow">{project.workflow.map(stage => <li>{stage}</li>)}</ol></details>}
+
     </div>
-    <p id="workflow-detail" aria-live="polite">Start with the request and relevant context. The language model determines the next step.</p>
-  </div> : project.workflow && <div class="project-flow" aria-label="Project workflow">{project.workflow.map((stage, i) => <div><span class="flow-number">0{i + 1}</span><span>{stage}</span>{i < project.workflow!.length - 1 && <span class="flow-connector" aria-hidden="true">↓</span>}</div>)}</div>}
-  <div class="project-bottom"><ul class="tags" aria-label="Technologies">{project.tags.map(tag => <li>{tag}</li>)}</ul><div class="project-links">{links.map(link => <a class="project-link" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`${link.label}: ${title}`}>{link.label} <span aria-hidden="true">↗</span></a>)}</div></div>
-  {project.accessNote && <p class="project-access">{project.accessNote}</p>}
+    <aside class="project-notes" aria-label={`Context and details: ${title}`}>
+      {project.context && <p class="project-context">{project.context}</p>}
+      {project.contribution && <div class="contribution-note"><h4>Contribution</h4><p>{project.contribution}</p></div>}
+      <ul class="tags" aria-label="Technologies">{project.tags.map(tag => <li>{tag}</li>)}</ul>
+      {links.length > 0 && <div class="project-links">{links.map(link => <a class="project-link" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`${link.label}: ${title}`}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>}
+      {project.accessNote && <p class="project-access">{project.accessNote}</p>}
+    </aside>
+  </div>
 </article>
-<script>
-  const descriptions = [
-    'Start with the request and relevant context. The language model determines the next step.',
-    'Connect the model to Google Workspace and terminal tools so it can act on a task.',
-    'Retain useful context across sessions so the next interaction can build on previous work.',
-  ];
-  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-stage]');
-  const detail = document.getElementById('workflow-detail');
-  buttons.forEach(button => button.addEventListener('click', () => {
-    buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    if (detail) detail.textContent = descriptions[Number(button.dataset.stage)];
-  }));
-</script>

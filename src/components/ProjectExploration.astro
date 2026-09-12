@@ -1,0 +1,34 @@
+---
+import type { Exploration } from '../data/explorations';
+interface Props { exploration: Exploration; index: number; }
+const { exploration, index } = Astro.props;
+---
+<section class="project-exploration" aria-labelledby={`exploration-title-${index}`}>
+  <p class="exploration-note">{exploration.note}</p>
+  <h4 id={`exploration-title-${index}`}>{exploration.question}</h4>
+  <p class="exploration-premise">{exploration.premise}</p>
+  <div class="exploration-controls" role="group" aria-label={exploration.question} hidden>
+    {exploration.states.map((state, i) => <button type="button" data-explore={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`exploration-${index}-${i}`}>{state.label}</button>)}
+  </div>
+  <div class="exploration-panels" aria-live="polite" aria-atomic="true">
+    {exploration.states.map((state, i) => <div class="exploration-state" id={`exploration-${index}-${i}`}>
+      <h5>{state.title}</h5><p>{state.explanation}</p>
+      <div class="exploration-artifact"><p class="artifact-label">{state.artifactLabel}</p><ul>{state.artifact.map(item => <li>{item}</li>)}</ul></div>
+      <p class="exploration-takeaway">{state.takeaway}</p>
+    </div>)}
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('.project-exploration').forEach(explorer => {
+    const controls = explorer.querySelector<HTMLElement>('.exploration-controls');
+    const buttons = explorer.querySelectorAll<HTMLButtonElement>('[data-explore]');
+    const panels = explorer.querySelectorAll<HTMLElement>('.exploration-state');
+    const select = (selected: number) => {
+      buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === selected)));
+      panels.forEach((panel, i) => panel.hidden = i !== selected);
+    };
+    select(0);
+    if (controls) controls.hidden = false;
+    buttons.forEach(button => button.addEventListener('click', () => select(Number(button.dataset.explore))));
+  });
+</script>
