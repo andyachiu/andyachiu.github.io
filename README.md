@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# Andy Chiu — Portfolio
+
+Astro portfolio at [andyachiu.github.io](https://andyachiu.github.io/). The Interactive Lab design presents selected projects, an illustrative agent workflow, and career experience.
+
+## Develop
+
+Requires Node and pnpm compatible with `package.json`. Install with `pnpm install --frozen-lockfile`. Build with `ASTRO_TELEMETRY_DISABLED=1 pnpm build`.
+
+For local development:
 
 ```sh
-pnpm create astro@latest -- --template minimal
+ASTRO_TELEMETRY_DISABLED=1 pnpm exec astro dev --background
+pnpm exec astro dev status
+pnpm exec astro dev logs
+pnpm exec astro dev stop
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro prints the preview address; do not assume a second server is needed if one is already running.
 
-## 🚀 Project Structure
+## Edit content
 
-Inside of your Astro project, you'll see the following folders and files:
+| Location | Content |
+|---|---|
+| `src/data/projects.ts` | Project descriptions, links, visibility labels, workflows |
+| `src/data/experience.ts` | Roles, organizations, dates |
+| `src/data/site.ts` | Biography, identity, social links, metadata |
+| `src/pages/index.astro` | Page sections and hero copy |
+| `src/styles/global.css` | Visual design and responsive behavior |
+| `public/` | Static public assets, including résumé and favicon |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+The agent explainer is illustrative; it does not execute tools or call a model. Private/proprietary cards must not imply source access. Explicit access-required links can be supplied for private repositories.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Validate
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The build renders a static page to `dist/`. For interface changes, inspect desktop/mobile layout, keyboard controls, and themes. There is no separate automated UI test suite or lint script declared at present. Documentation-only changes require link/command review rather than an application build.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Publish
 
-## 🧞 Commands
+Pushing `main` triggers the GitHub Pages build and deployment in `.github/workflows/deploy.yml`. Confirm task authorization before pushing. Verify the resulting deployment and affected live content. Builds and local previews alone do not publish.
 
-All commands are run from the root of the project, from a terminal:
+## Agent instructions
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[AGENTS.md](AGENTS.md) contains the shared working instructions. `CLAUDE.md` is a symlink to that file. Sensitive supporting material belongs outside this public repository.
