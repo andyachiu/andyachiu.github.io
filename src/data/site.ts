@@ -25,7 +25,7 @@ export const siteConfig = {
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/andyachiu", handle: "andyachiu" },
     { label: "GitHub", href: "https://github.com/andyachiu", handle: "@andyachiu" },
-    { label: "theandychiu+website@gmail.com", href: "mailto:theandychiu+website@gmail.com" },
+    { label: "Email", href: "mailto:theandychiu+website@gmail.com" },
     { label: "Résumé", href: resumeUrl },
   ] as SocialLink[],
 };
