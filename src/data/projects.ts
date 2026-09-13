@@ -14,6 +14,12 @@ export interface Project {
   href: string;
   year: string;
   featured?: boolean;
+  media?: {
+    src: string;
+    poster: string;
+    alt: string;
+    caption: string;
+  };
 }
 
 export const projects: Project[] = [
@@ -56,6 +62,28 @@ export const projects: Project[] = [
       { label: "Memory design & controls", href: "https://github.com/andyachiu/automation/blob/main/docs/MEMORY.md" },
     ],
     year: "2025 — Present",
+    featured: true,
+  },
+  {
+    title: "BUSY Bar Commute Assistant",
+    displayTitle: "Commute-aware desk display",
+    category: "CONNECTED DEVICE",
+    context: "Personal project · BUSY Bar + Google Cloud · Public source",
+    description: "A desk-display app that gathers Giants, Warriors, concert, convention, and street-event schedules before the drive from downtown San Francisco to Potrero Hill. It stores upcoming events on the bar for dial-based browsing, then uses timed priority alerts and provisional departure guidance to protect a home-by-5 deadline.",
+    contribution: "Designed and built the hosted event pipeline, priority rules, compact on-device cache, native firmware app, and animated display system.",
+    workflow: ["Collect public San Francisco event schedules", "Publish a bounded event snapshot over Wi-Fi", "Browse upcoming events and surface time-sensitive alerts"],
+    tags: ["Embedded C", "Python", "Google Cloud"],
+    href: "https://github.com/andyachiu/busybar-commute",
+    links: [
+      { label: "Explore the project", href: "https://github.com/andyachiu/busybar-commute" },
+    ],
+    media: {
+      src: "/projects/busybar-commute-alerts.mp4",
+      poster: "/projects/busybar-commute-alerts.png",
+      alt: "Animated BUSY Bar display studies for baseball, basketball, traffic, concerts, conventions, and commute alerts",
+      caption: "Animated display studies · Event, score, and travel details shown here use sample data",
+    },
+    year: "2026",
     featured: true,
   },
   {
