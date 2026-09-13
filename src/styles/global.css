@@ -76,6 +76,11 @@
 .workflow-overview{margin-top:24px}
 .workflow-overview-label{color:var(--muted);font:12px/1.6 var(--font-mono);margin:0}
 .workflow-overview .editorial-flow{margin-top:8px}
+.project-media{margin:28px 0 0}
+.project-media video,.project-media img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:7px;background:#101721}
+.project-media-still{display:none!important}
+.project-media figcaption{margin-top:10px;font:11px/1.6 var(--font-mono);color:var(--muted)}
 @media(max-width:720px){.project-exploration{padding:20px}.project-exploration h4{font-size:20px}.exploration-controls{gap:7px}.exploration-controls button{padding:10px 12px}.exploration-artifact{padding:16px}}
 @media(max-width:380px){.project-exploration{padding:16px}.exploration-controls{flex-direction:column}.exploration-controls button{text-align:left}}
-@media print{.exploration-controls{display:none}.exploration-state[hidden]{display:block}.exploration-state{margin-top:24px}}
+@media(prefers-reduced-motion:reduce){.project-media-motion{display:none!important}.project-media-still{display:block!important}}
+@media print{.exploration-controls,.project-media-motion{display:none}.exploration-state[hidden],.project-media-still{display:block!important}.exploration-state{margin-top:24px}}

@@ -17,6 +17,13 @@ const links = project.links ?? (project.access || !project.href ? [] : [{
     <div class="project-story">
       <h3 id={`project-title-${index}`}>{title}</h3>
       <p class="project-description">{project.description}</p>
+      {project.media && <figure class="project-media">
+        <video class="project-media-motion" autoplay muted loop playsinline controls preload="metadata" poster={project.media.poster} aria-label={project.media.alt}>
+          <source src={project.media.src} type="video/mp4" />
+        </video>
+        <img class="project-media-still" src={project.media.poster} alt={project.media.alt} loading="lazy" />
+        <figcaption>{project.media.caption}</figcaption>
+      </figure>}
       {exploration ? <ProjectExploration exploration={exploration} index={index} /> : project.workflow && <div class="workflow-overview"><p class="workflow-overview-label">{project.title === 'Enterprise Implementation CRM' ? 'Connecting insight to implementation' : project.title === 'Packing Assistant' ? 'A checklist that improves between trips' : 'At a glance'}</p><ol class="editorial-flow">{project.workflow.map(stage => <li>{stage}</li>)}</ol></div>}
       {exploration && project.workflow && <details class="workflow-disclosure"><summary>View the workflow outline <span class="disclosure-mark" aria-hidden="true">+</span></summary><ol class="editorial-flow">{project.workflow.map(stage => <li>{stage}</li>)}</ol></details>}
 
