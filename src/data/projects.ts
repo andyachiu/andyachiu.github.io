@@ -69,7 +69,7 @@ export const projects: Project[] = [
     displayTitle: "Commute-aware desk display",
     category: "CONNECTED DEVICE",
     context: "Personal project · BUSY Bar + Google Cloud · Public source",
-    description: "A desk-display app that gathers Giants, Warriors, concert, convention, and street-event schedules before the drive from downtown San Francisco to Potrero Hill. It stores upcoming events on the bar for dial-based browsing, then uses timed priority alerts and provisional departure guidance to protect a home-by-5 deadline.",
+    description: "A desk-display app that gathers Giants, Warriors, concert, convention, and street-event schedules before the drive from downtown San Francisco to home. It keeps upcoming events on the bar for quick dial-based browsing, then uses timed priority alerts and provisional departure guidance to help choose when to leave and spend less time in traffic.",
     contribution: "Designed and built the hosted event pipeline, priority rules, compact on-device cache, native firmware app, and animated display system.",
     workflow: ["Collect public San Francisco event schedules", "Publish a bounded event snapshot over Wi-Fi", "Browse upcoming events and surface time-sensitive alerts"],
     tags: ["Embedded C", "Python", "Google Cloud"],
