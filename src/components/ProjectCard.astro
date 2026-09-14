@@ -18,7 +18,7 @@ const links = project.links ?? (project.access || !project.href ? [] : [{
       <h3 id={`project-title-${index}`}>{title}</h3>
       <p class="project-description">{project.description}</p>
       {project.media && <figure class="project-media">
-        <video class="project-media-motion" autoplay muted loop playsinline controls preload="metadata" poster={project.media.poster} aria-label={project.media.alt}>
+        <video class="project-media-motion" autoplay muted loop playsinline controls preload="metadata" poster={project.media.poster} aria-label={project.media.alt} data-playback-rate={project.media.playbackRate ?? 1}>
           <source src={project.media.src} type="video/mp4" />
         </video>
         <img class="project-media-still" src={project.media.poster} alt={project.media.alt} loading="lazy" />
@@ -37,3 +37,11 @@ const links = project.links ?? (project.access || !project.href ? [] : [{
     </aside>
   </div>
 </article>
+
+<script>
+  for (const video of document.querySelectorAll<HTMLVideoElement>('[data-playback-rate]')) {
+    const rate = Number(video.dataset.playbackRate ?? 1);
+    video.defaultPlaybackRate = rate;
+    video.playbackRate = rate;
+  }
+</script>

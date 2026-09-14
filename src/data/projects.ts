@@ -19,6 +19,7 @@ export interface Project {
     poster: string;
     alt: string;
     caption: string;
+    playbackRate?: number;
   };
 }
 
@@ -82,6 +83,7 @@ export const projects: Project[] = [
       poster: "/projects/busybar-commute-alerts.png",
       alt: "Animated BUSY Bar display studies for baseball, basketball, traffic, concerts, conventions, and commute alerts",
       caption: "Animated display studies · Event, score, and travel details shown here use sample data",
+      playbackRate: 1.15,
     },
     year: "2026",
     featured: true,
