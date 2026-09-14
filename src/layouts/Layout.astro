@@ -11,6 +11,52 @@ const {
   title = `${siteConfig.name} — ${siteConfig.title}`,
   description = siteConfig.headline,
 } = Astro.props;
+
+const canonicalUrl = 'https://andyachiu.github.io/';
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://andyachiu.github.io/#person',
+      name: siteConfig.name,
+      url: canonicalUrl,
+      jobTitle: siteConfig.title,
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Google',
+      },
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'UC Berkeley',
+        url: 'https://www.berkeley.edu/',
+      },
+      description: siteConfig.headline,
+      sameAs: siteConfig.links
+        .filter((l) => l.href.startsWith('https://www.linkedin.com') || l.href.startsWith('https://github.com'))
+        .map((l) => l.href),
+      knowsAbout: [
+        'Artificial Intelligence',
+        'Applied AI',
+        'Product Management',
+        'Data Science',
+        'Customer Intelligence',
+        'Bioinformatics',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://andyachiu.github.io/#website',
+      url: canonicalUrl,
+      name: `${siteConfig.name} — Portfolio & Interactive Lab`,
+      description: description,
+      author: {
+        '@id': 'https://andyachiu.github.io/#person',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,6 +65,7 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -26,7 +73,16 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://andyachiu.github.io/" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteConfig.name} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Structured Data (JSON-LD) for Search & AI Indexing -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
     <!-- Zero-flash Dark Mode Script -->
     <script is:inline>
