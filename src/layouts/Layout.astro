@@ -12,14 +12,14 @@ const {
   description = siteConfig.headline,
 } = Astro.props;
 
-const canonicalUrl = 'https://andyachiu.github.io/';
+const canonicalUrl = 'https://andychiu.me/';
 
 const schemaData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Person',
-      '@id': 'https://andyachiu.github.io/#person',
+      '@id': 'https://andychiu.me/#person',
       name: siteConfig.name,
       url: canonicalUrl,
       jobTitle: siteConfig.title,
@@ -47,12 +47,12 @@ const schemaData = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://andyachiu.github.io/#website',
+      '@id': 'https://andychiu.me/#website',
       url: canonicalUrl,
       name: `${siteConfig.name} — Portfolio & Interactive Lab`,
       description: description,
       author: {
-        '@id': 'https://andyachiu.github.io/#person',
+        '@id': 'https://andychiu.me/#person',
       },
     },
   ],
@@ -68,6 +68,7 @@ const schemaData = {
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="google-site-verification" content="hpH5_nB4dqcGIorWoboA57ox79lutHoUemIgk4kwA3I" />
 
     <!-- OpenGraph -->
     <meta property="og:title" content={title} />

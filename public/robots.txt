@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andyachiu.github.io/sitemap.xml
+Sitemap: https://andychiu.me/sitemap.xml
