@@ -1,14 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#18181b"/>
-  <path d="M16 8L9 23H12L13.5 19.5H18.5L20 23H23L16 8ZM14.3 17.5L16 13.2L17.7 17.5H14.3Z" fill="#fafafa"/>
+  <rect width="32" height="32" rx="8" fill="#172622"/>
+  <path class="a" d="M3 24L7.6 8H10.4L15 24H11.9L9 13.2L6.1 24ZM6 17.6H12V20.2H6Z" fill="#f8faf9"/>
+  <path class="c" d="M27 11.4A5 6.5 0 1 0 27 20.6" stroke="#79dfb6" stroke-width="3.2"/>
   <style>
-    @media (prefers-color-scheme: light) {
-      rect { fill: #18181b; }
-      path { fill: #fafafa; }
-    }
     @media (prefers-color-scheme: dark) {
-      rect { fill: #fafafa; }
-      path { fill: #18181b; }
+      rect { fill: #79dfb6; }
+      .a { fill: #0c1110; }
+      .c { stroke: #0c1110; }
     }
   </style>
 </svg>
