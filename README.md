@@ -108,3 +108,7 @@ Deployments to GitHub Pages are automated via GitHub Actions in [`.github/workfl
 - [`AGENTS.md`](AGENTS.md) defines workspace conventions, coding rules, and framework references.
 - Both `CLAUDE.md` and `GEMINI.md` are symlinks to `AGENTS.md`.
 - Sensitive credentials and personal notes belong outside this public repository (e.g. macOS Keychain).
+
+## CasaPi information pages
+
+`/casapi/`, `/casapi/privacy/`, and `/casapi/terms/` describe the personal Nest fan integration for Google OAuth branding. They use `src/layouts/CasaPi.astro` and publish no household telemetry, credentials, or dashboard endpoints. Keep the privacy description aligned with the implementation when data use or retention changes.

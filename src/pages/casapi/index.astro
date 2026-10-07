@@ -1,0 +1,14 @@
+---
+import CasaPi from '../../layouts/CasaPi.astro';
+---
+<CasaPi title="CasaPi Air Quality" description="A private home air-quality monitor and Google Nest fan integration operated by Andy Chiu.">
+<p>CasaPi Air Quality is Andy Chiu’s personal home automation project. It monitors indoor carbon dioxide with local sensors and can request a short fan timer on an authorized Google Nest thermostat when readings remain elevated.</p>
+<h2>How it works</h2>
+<p>A Raspberry Pi collects sensor observations and keeps a private dashboard. With the account owner’s permission, the integration uses Google’s Smart Device Management API to read the selected thermostat’s fan status and request a timed fan run. Its control logic does not change heating or cooling modes or temperature setpoints.</p>
+<p>Fan circulation alone does not remove carbon dioxide from a home without outdoor-air exchange. This project is an experimental convenience, not a safety alarm or ventilation guarantee.</p>
+<h2>Private by design</h2>
+<p>This public page describes the project. The dashboard, household readings, device identifiers, and credentials are not published here. There is no public signup or access to home controls.</p>
+<p>Read the <a href="/casapi/privacy/">privacy policy</a> and <a href="/casapi/terms/">terms of use</a> for data handling and limitations.</p>
+<h2>Contact</h2>
+<p>Questions about CasaPi or its data: <a href="mailto:theandychiu+website@gmail.com">contact Andy Chiu</a>.</p>
+</CasaPi>

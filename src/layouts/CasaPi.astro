@@ -1,0 +1,15 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, 'https://andychiu.me');
+const pageTitle = title === 'CasaPi Air Quality' ? title : `${title} · CasaPi Air Quality`;
+---
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>{pageTitle}</title><meta name="description" content={description} /><link rel="canonical" href={canonical} /><link rel="icon" href="/favicon.svg" />
+<script is:inline>try { if ((localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark') document.documentElement.classList.add('dark'); } catch {}</script>
+</head>
+<body><div class="page-shell"><header class="site-header"><a class="wordmark" href="/casapi/">CasaPi<span>Air Quality</span></a><ThemeToggle /></header><main><p class="eyebrow">PERSONAL HOME AUTOMATION · BY ANDY CHIU</p><h1>{title}</h1><slot /></main><footer><nav aria-label="CasaPi information"><a href="/casapi/">About</a><a href="/casapi/privacy/">Privacy</a><a href="/casapi/terms/">Terms</a><a href="/">Andy Chiu</a></nav></footer></div></body>
+</html>
+<style>main{max-width:740px;padding:54px 0}main :global(h2){font-size:24px;font-weight:500;margin:32px 0 12px}main :global(p),main :global(li){font-size:17px;line-height:1.8;color:var(--muted)}main :global(a){color:var(--accent);text-decoration:underline;text-underline-offset:3px}main :global(ul){padding-left:24px;list-style:disc}footer{padding:24px 0 40px;border-top:1px solid var(--line)}nav{display:flex;flex-wrap:wrap;gap:24px}header .wordmark{display:flex;flex-wrap:wrap;gap:8px}h1{font-size:clamp(36px,6vw,60px)}@media(max-width:480px){.page-shell{padding:0 22px}.wordmark{font-size:18px}main{padding:36px 0}}</style>

@@ -1,0 +1,20 @@
+---
+import CasaPi from '../../layouts/CasaPi.astro';
+---
+<CasaPi title="Privacy policy" description="How CasaPi Air Quality uses Google Nest data and local air-quality observations.">
+<p>Effective October 7, 2026. CasaPi Air Quality is a personal integration operated by Andy Chiu for an authorized household.</p>
+<h2>Google data and permissions</h2>
+<p>With the account owner’s consent, CasaPi accesses selected Google Nest device information, device and room identifiers, and thermostat traits through Google’s Smart Device Management API. Responses can include settings, temperatures, humidity, and fan status. Google’s permission covers broader thermostat controls; CasaPi’s implemented control logic reads fan status and requests timed fan operation. Camera access is not requested for this deployment.</p>
+<p>OAuth client credentials and a refresh token are stored in a private file on the operator’s Raspberry Pi. The token is used to obtain temporary access tokens from Google. Temporary setup copies may also be held privately on the operator’s computer while authorization is completed.</p>
+<h2>Use, storage, and retention</h2>
+<p>Google data is used to identify the authorized thermostat, check fan state, and execute requested fan timers. Thermostat responses are processed for control and troubleshooting; CasaPi does not build a continuous history of Google thermostat readings. Fan attempts are recorded locally with time, duration, reason, and command status. Those records and operational logs remain until the operator deletes them.</p>
+<p>Separately, local air-quality sensors supply CO₂, temperature, humidity, and battery observations. The Pi stores these observations for up to 90 days, pruning older observations when new readings arrive. The private dashboard is accessible through the operator’s private network. Sensor alerts can be delivered through ntfy and an Apple Messages relay to configured household recipients.</p>
+<h2>Sharing and protection</h2>
+<p>CasaPi communicates with Google to authenticate and control the authorized device. Google Nest data and OAuth credentials are not intentionally included in ntfy or iMessage alerts. Alert content includes local sensor readings and configured room labels. Google data is not sold, used for advertising, or used to train AI models. The integration does not publish household data on this website.</p>
+<p>Credentials are kept outside the public source repository with restrictive file permissions. Google API traffic uses HTTPS. These measures reduce exposure but do not guarantee security.</p>
+<p>CasaPi’s use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+<h2>Your choices</h2>
+<p>The account owner can revoke CasaPi access through <a href="https://nestservices.google.com/partnerconnections">Google’s Partner Connections Manager</a> or their Google Account’s connected-app settings. Revocation stops future authorized access but does not erase existing local records. Contact the operator to request deletion of stored credentials or records, or stop the integration.</p>
+<h2>This website and contact</h2>
+<p>These information pages do not collect Nest data or provide a login. GitHub Pages hosts the website and may process ordinary request information to deliver it. A browser preference stores the selected display theme. Contact <a href="mailto:theandychiu+website@gmail.com">Andy Chiu</a> with privacy questions or deletion requests. Material changes to this policy will be reflected here with an updated effective date.</p>
+</CasaPi>
